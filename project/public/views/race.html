@@ -1,0 +1,113 @@
+﻿<div class="container race-content">
+    
+    <div class="col-sm-2 race-secondary">
+        <div class="driver-picture">
+            <div class="pull-left">
+                <div class="">
+                    <img ng-show="race" src="img/flags/big/{{race.Circuit.Location.country}}.png" />
+                    <a href="#/races" class="btn btn-info"><-Race List</a>
+                </div>
+            </div>
+            <div class="pull-left">
+                <div class="tilte ng-binding">
+                    <br />
+                    {{race.Circuit.circuitName}}
+                    <br />
+
+                </div>
+            </div>
+
+        </div>
+        <div class="pull-left country-detail ng-binding">
+            <strong>Country: </strong>{{race.Circuit.Location.country}}
+            <br />
+            <strong>Locaton: </strong>{{race.Circuit.Location.locality}}
+           <br />
+            <strong>Date: </strong>{{race.date}}<br />
+            <strong><a href="{{race.url}}" target="_blank" class="report">Full Report:<span class="glyphicon glyphicon-link"></span></a></strong>
+        </div>
+
+    </div>
+
+        <div class="col-sm-10">
+            <div class="col-sm-5">
+                <table class="table table-striped table-bordered table-hover box list-table result-table">
+                    <thead class="header">
+                        <tr>
+                            <th colspan="5" class="tab-header"><span class="label label-success"><strong>Qualifying Results</strong></span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Pos</td>
+                            <td>Driver</td>
+                            <td>Team</td>
+                            <td>Best Time</td>
+                        </tr>
+                        <tr ng-repeat="qualiresult in qualiResult">
+                            <td>{{qualiresult.position}}</td>
+                            <td>
+                                <a href="#/drivers/{{qualiresult.Driver.driverId}}">
+                                    <img src="img/teams/small/{{qualiresult.Constructor.constructorId}}.png" /><strong>{{qualiresult.Driver.familyName}}</strong></a>
+                            </td>
+                            <td>
+                                <a href="#/teams/{{qualiresult.Constructor.constructorId}}"><strong>{{qualiresult.Constructor.name}}</strong></a>
+                            </td>
+                            <td>
+                                <span ng-show="qualiresult.Q3" class="ng-binding">{{qualiresult.Q3}}
+                                </span>
+                                <span ng-show="!qualiresult.Q3 && qualiresult.Q2" class="ng-binding">{{qualiresult.Q2}}
+                                </span>
+                                <span ng-show="!qualiresult.Q2" class="ng-binding">{{qualiresult.Q1}}
+                                </span>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tfoot class="footer">
+                        <tr>
+                            <td colspan="4"></td>
+                        </tr>
+                    </tfoot>
+                </table>
+
+            </div>
+            <div class="col-sm-7">
+                <table class="table table-striped table-bordered table-hover box list-table result-table">
+                    <thead class="header">
+                        <tr>
+                            <th colspan="5" class="tab-header"><span class="label label-info"><strong>Race Results</strong></span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Pos</td>
+                            <td>Driver</td>
+                            <td>Team</td>
+                            <td>Result</td>
+                            <td>Points</td>
+                        </tr>
+                        <tr ng-repeat="raceresult in raceResult">
+                            <td>{{raceresult.position}}</td>
+                            <td>
+                                <a href="raceresult.Driver.driverId">
+                                    <img src="img/teams/small/{{raceresult.Constructor.constructorId}}.png" /><strong>{{raceresult.Driver.familyName}}</strong></a>
+                            </td>
+                            <td>
+                                <a href="raceresult.Constructor.constructorId"><strong>{{raceresult.Constructor.name}}</strong></a>
+                            </td>
+                            <td>
+                                <span ng-show="raceresult.Time">{{raceresult.Time.time}}</span>
+                                <span ng-show="!raceresult.Time">{{raceresult.status}}</span>
+                            </td>
+                            <td>{{raceresult.points}}</td>
+                        </tr>
+                    </tbody>
+                    <tfoot class="footer">
+                        <tr>
+                            <td colspan="5"></td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+    </div>
+</div>

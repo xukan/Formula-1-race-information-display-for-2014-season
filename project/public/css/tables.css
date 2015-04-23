@@ -1,0 +1,38 @@
+﻿
+.race-content{
+	margin: auto auto;
+	padding:0 0;
+}
+
+.race-secondary{
+	width:195px;
+	border: 2px solid skyblue;
+	border-radius: 15px;
+	padding: 5px 0;
+
+}
+
+.driver-secondary{
+	width:200px;
+	border: 2px solid skyblue;
+  	border-radius: 15px;
+}
+
+.team-secondary{
+	width:200px;
+	border: 2px solid skyblue;
+  	border-radius: 15px;
+}
+
+
+.report{
+ 	display: inline-block;
+}
+
+.main-content{
+	padding-right:5px;
+}
+
+.team-tilte{
+	margin-top:20px;
+}
