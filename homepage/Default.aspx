@@ -59,6 +59,8 @@
         <li><a href="autofile.aspx" target="_blank">AutoFile</a></li>
         <li><a href="images/autoimage.aspx" target="_blank">Images</a></li>
         <li><a href="blog/" target="_blank">Blog</a></li>
+        <li><a href="https://github.com/xukan/GitHub/tree/master/homepage" target="_blank">homepage_github</a></li>
+        <li><a href="https://github.com/xukan/Web-Development" target="_blank">Experiment_github</a></li>
 	</ul>
 
 		<select onchange="MobilescrollToThis(this.value)" name="dropdpown">
