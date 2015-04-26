@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- Head section : BEGIN -->
+    <head>
+        <link rel="shortcut icon" href="images/doc/f1.ico"/>
+        <title>Documentation</title>
+        
+
+        <!-- Style sheets -->
+        <link rel="stylesheet" href="css/doc.css"/>
+    </head>
+    <!-- Head section : END -->
+
+    <!-- Body section : BEGIN -->
+    <body class="asBody asDocBody">
+        <div class="asProfileTitleDiv">
+            <header class="asNav">
+                <a class="asBanner">Project Documentation</a>
+                <a class="asProfileNavA" href="http://net4.ccs.neu.edu/home/xukan" target="_blank">Homepage</a>
+                <a class="asProfileNavA" href="https://github.com/xukan/GitHub/tree/master/project" target="_blank">Source</a>
+            </header>
+        </div>
+
+        <div class="asSectionNavDiv">
+            <nav>
+                <ul class="asSectionNavUl">
+                    <li class="asSectionNavLi"><a class="asSectionNavA" href="#title">Title</a></li>
+                    <li class="asSectionNavLi"><a class="asSectionNavA" href="#intro">Instruction</a></li>
+                    <li class="asSectionNavLi"><a class="asSectionNavA" href="#overview">Overview video</a></li>
+                    <li class="asSectionNavLi"><a class="asSectionNavA" href="#flow">Registration and login module</a></li>
+                    <li class="asSectionNavLi"><a class="asSectionNavA" href="#detail">Profile module</a></li>
+                    <li class="asSectionNavLi"><a class="asSectionNavA" href="#TRG">Team, racer, and grand prix information display module</a></li>
+                    <li class="asSectionNavLi"><a class="asSectionNavA" href="#Mresult">Match result display module</a></li>
+                    <li class="asSectionNavLi"><a class="asSectionNavA" href="#forum">Fun forum module</a></li>
+                    <li class="asSectionNavLi"><a class="asSectionNavA" href="#tech">Technolgy</a></li>
+                    <li class="asSectionNavLi"><a class="asSectionNavA" href="#reference">Reference</a></li>
+                    <li class="asSectionNavLi"><a class="asSectionNavA" href="#thanks">Special thank you</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="asDocContentDiv">
+            <div class="asDocSectionDiv">
+                <a name="title"/>
+                <h2 class="asH2 asDocH2">Project title</h2>
+                <hr class="asHr"/>
+                <h3 class="asDocH3">Formula 1 information display for 2014 season</h3>
+            </div>
+
+            <div class="asDocSectionDiv">
+                <a name="intro"/>
+                <h2 class="asH2 asDocH2">Instruction</h2>
+                <hr class="asHr"/>
+                <p class="asDocP">
+                    The website contains 5 major modules:
+                    <ul class="asDocUl">
+                        <li>Registration and login module</li>
+                        <li>profile module</li>
+                        <li>Team, racer, and grand prix information display module</li>
+                        <li>Match result display module</li>
+                        <li>Fun forum module</li>
+                    </ul>  
+                    <span class="asDocSpan"> In this document, I will talk about 5 modules in details. Let's get started O(∩_∩)O~</span>
+                </p>
+            </div>
+
+            <div class="asDocSectionDiv">
+                <a name="overview"/>
+                <h2 class="asH2 asDocH2">Overview video</h2>
+                <hr class="asHr"/>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/tqw_jCwW1YA" frameborder="0" allowfullscreen></iframe>
+            </div>
+
+            <div class="asDocSectionDiv">
+                <a name="flow"/>
+                <h2 class="asH2 asDocH2">Registration and login module</h2>
+                <hr class="asHr"/>
+                <p class="asDocP">
+
+                    The website starts at home page, a visitor can only view dashboard. which shows visitors a driver championship standing list. Any link is disabled. Visitors can only view a plain page without any modification. 
+                     <ul class="asDocUl">
+                    </ul>
+                    <span class="asDocSpan">
+                        <span class="asBoldSpan">Registration:</span>To become a user first needs to register in order to get full report about 2014 season result. If a visitor succeeds in registering, then he becomes a normal user and the page will be forwarded to starting page. At that time, a user is able to view all information provided by the website. Meanwhile, he or she can follow their favorite drivers and teams. Each registered user has a profile. 
+                        <br/>
+                        <img class="asDocImg" src="images/doc/registration.png"/>
+                        <br/>
+                        <span class="asBoldSpan">Login: </span>Once a visitor is registered, his or her information like username, password, and email will be stored in database. So next time. a user can directly use website through entering his or her username and password. Without registration, when a visitor click on left navigation parts such as team, circuit, and forum, the page will be forwarded to login page.
+                        <br/>
+                        <img class="asDocImg" src="images/doc/login.png"/>
+                    </span>
+                </p>
+            </div>
+
+            <div class="asDocSectionDiv">
+                <a name="detail"/>
+                <h2 class="asH2 asDocH2">Profile module</h2>
+                <hr class="asHr"/>
+                
+                <p class="asDocP">
+                    <a name="profile"/>
+                    <span class="asBoldSpan">Profile. </span>
+                    Registered users are classified into two different types.
+                    <ul class="asDocUl">
+                        <li>common user </li>
+                        <li>administrator </li>
+                    </ul>
+                    <span class="asBoldSpan">Common user </span>A registered user is allowed to follow his/her favorite driver and team. When a user clicks on follow, it will be added to profile.The profile page is a complete view of your personal information, and what he or she follows on website. User can edit and update their profiles. 
+                    <br/>
+                    <img class="asDocImg" src="images/doc/favorite.png"/>
+                    <img class="asDocImg" src="images/doc/userprofile.png"/>
+                    
+                    <br/>
+                    <span class="asBoldSpan">Administrator</span> is responsible for user mamagement. So he is accessible to user information including username, password and email. At the same time, admin can edit user information and even delete a user. On the other hand,  admin is suppoesd to launch a topic for forum and collect user ideas. Forum part will be introduced later.
+                    <br/>
+                    <img class="asDocImg" src="images/doc/admin.png"/>
+                </p>
+            </div>
+
+            <div class="asDocSectionDiv">
+                <a name="TRG"/>
+                <h2 class="asH2 asDocH2">Team, racer, and grand prix information display module</h2>
+                <hr class="asHr"/>
+                <p class="asDocP">
+                    I show team, racers and grand prix information with the help of<a class="asSectionNavA asRougeSpan" href="http://ergast.com/mrd/" target="_blank">Ergast Developer API</a>. This is a really fantastic web service which provides a historical record of motor racing data for non-commercial purposes.
+                </p>
+
+                <p class="asDocP">
+                    <a name="Team"/>
+                    <span class="asBoldSpan">Team </span>
+                    In team display page, I show all 11 teams entering 2014 F1 season and display them in decreasing order according to their final points. Users can see team name, team badge and country each team belonging to. On a click of team's name, user goes to visit detailed introduction of the team.
+                    <br/>
+                    <img class="asDocImg" src="images/doc/teams.png"/>
+                    <hr class="asHr"/>
+                    For each team, users can veiw its performance on different grand prix, information includes how many scores its racers earn and team score. When you click on <strong>history</strong>, page will be forwarded to wikipedia where users can get more information.
+                    <img class="asDocImg" src="images/doc/team.png"/>
+                </p>
+
+                <p class="asDocP">
+                    <a name="Racer"/>
+                    <span class="asBoldSpan">Racer </span> page, which also displayed as default showing all racers is introduced earlier. After a visiter registers, he or she is allowed to view detailed information of a racer, personal information and performance in each match. Also, here I provide a link called biography to wikipedia for more information.
+                    <br/>
+                    <img class="asDocImg" src="images/doc/racer.png"/>
+                </p>
+
+                <p class="asDocP">
+                    <a name="Racer"/>
+                    <span class="asBoldSpan">Grand prix</span> page, you can also call it as circuit page. Each year F1 has 19 matches in 19 different circuits located in 19 different countries. In this website, grand prix tells users match time and winner for each match. I am still working on this page. When users click on name of a circuit, it is supposed to show a modal containing a picture of the circuit. Sounds great? It will come soon.
+                    <br/>
+                    <img class="asDocImg" src="images/doc/circuits.png"/>
+                </p>
+
+            </div>
+
+            <div class="asDocSectionDiv">
+                <a name="Mresult"/>
+                <h2 class="asH2 asDocH2">Match result</h2>
+                <hr class="asHr"/>
+                <p class="asDocP">
+                    F1 audience is sure to know that each match is seperated to three sessions, free practice session, qualifying session and formal race. A car's starting postion on race is dependant on racer's perfomance in qualifying race. Thus, in this page, I design two tables to show race information. In qualifying result table, it displays results in decreasing order of racer's best time. Race result table tells us time each racer spent to finish competition and points they earned.
+                    <br/>
+                    <img class="asDocImg" src="images/doc/match.png"/>
+                </p>  
+            </div>
+
+            <div class="asDocSectionDiv">
+                <a name="forum"/>
+                <h2 class="asH2 asDocH2">Fun forum module</h2>
+                <hr class="asHr"/>
+                <p class="asDocP">
+                    <span class="asBoldSpan">Forum</span> provides funs to give comments about the match and drivers. Before each match, administrator will encourage to predict who is gonna win the match and what kind of strategy a team is gonna apply. A shortcoming for this part is that, now it is only a public area which means every message is open to every user. So in the near future, I will add a function that a user can also send private messagess to another user he or she wants to communicate.Notice that at the right top of the page, there is a mail box that gives a remind when new message arrives. 
+                    <br/>
+                    <img class="asDocImg" src="images/doc/forum.png"/>
+                </p>  
+            </div>
+
+            <div class="asDocSectionDiv">
+                <a name="tech"/>
+                <h2 class="asH2 asDocH2">Technology</h2>
+                <hr class="asHr"/>
+                <p class="asDocP">
+                    The following technologies have been combined to build this project:
+                    <ul class="asDocUl">
+                        <li>HTML</li>
+                        <li>CSS</li>
+                        <li>JavaScript</li>
+                        <li>jQuery</li>
+                        <li>MongoDB</li>
+                        <li>Express.js</li>
+                        <li>AngularJS</li>
+                        <li>Node.js</li>
+                        <li>Mongoose.js</li>
+                        <li>Passport.js</li>
+                    </ul>
+                </p>
+            </div>
+
+            <div class="asDocSectionDiv">
+                <a name="reference"/>
+                <h2 class="asH2 asDocH2">References</h2>
+                <hr class="asHr"/>
+                <p class="asDocP">
+                    I have used the following resources to implement various parts of my website:
+                    <ul>
+                        <li><a class="asSectionNavA" href="https://www.youtube.com/user/jannunzi/videos" target="_blank">Prof. Jose's lectures</a></li>
+                        <li><a class="asSectionNavA" href="https://www.youtube.com/watch?v=TRrL5j3MIvo" target="_blank">Introduction to Angular.js in 50 Examples</a></li>
+                        <li><a class="asSectionNavA" href="https://www.youtube.com/watch?v=oepmLGQP1m4&list=PLUoqTnNH-2Xz_BUrjcahKWDhPcUj-FTOt" target="_blank">Code a Responsive Website with Bootstrap 3</a></li>
+                        <li><a class="asSectionNavA" href="https://angularjs.org/" target="_blank">AngularJS</a></li>
+                        <li><a class="asSectionNavA" href="https://nodejs.org/" target="_blank">Node.js</a></li>
+                        <li><a class="asSectionNavA" href="http://expressjs.com/" target="_blank">Express</a></li>
+                        <li><a class="asSectionNavA" href="https://www.mongodb.org/" target="_blank">MongoDB</a></li>
+                        <li><a class="asSectionNavA" href="http://mongoosejs.com/" target="_blank">Mongoose</a></li>
+                        <li><a class="asSectionNavA" href="http://passportjs.org/" target="_blank">Passport</a></li>
+                        <li><a class="asSectionNavA" href="http://ergast.com/mrd/" target="_blank">Ergast Developer API</a></li>
+                    </ul>
+                </p>
+            </div>
+
+            <div class="asDocSectionDiv">
+                <a name="thanks"/>
+                <h2 class="asH2 asDocH2">Special Thank you</h2>
+                <p>It is a happy semeter. Thank you to professor Jose Annunziato. His great Web development course gives me insight into website design and development. I learned a lot not only about technology but also positive attitude as a web developer. Thank you for my girlfriend and my uncle who helped me find some error in my project. Also, I want to express thank you all my friends who kindly help me when I have problems. I'll make progress with all of you around me. Thank you so much.</p>
+            </div>
+        </div>
+
+        <div class="asFooterDiv">
+            <span class="asCopyrightSpan1">&copy; 2015 Northeastern University - </span>
+            <span class="asCopyrightSpan2">Kan Xu</span>
+        </div>
+    </body>
+    <!-- Body section : END -->
+</html>
+<!-- End of doc.html -->

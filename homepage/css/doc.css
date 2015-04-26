@@ -1,0 +1,1105 @@
+.asBody
+{
+    font-family: Arial;
+    margin: 0px;
+    max-width: 100%;
+}
+
+/* Button : BEGIN */
+.asBlueBtn
+{
+    background-color: #2E64FE;
+    border: 1px solid #013ADF;
+    color: white;
+    font-size: 15px;
+    font-weight: normal;
+    margin-left: 15px;
+    padding-bottom: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 5px;
+}
+
+.asBlueBtn:hover
+{
+    border-color: #424242;
+}
+
+.asBookmarkBtn
+{
+    background-color: #A4A4A4;
+    border: 1px solid #E6E6E6;
+    border-radius: 5px;
+    color: #FAFAFA;
+    font-size: 12px;
+    font-weight: bold;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.asBookmarkBtn:hover
+{
+    background-color: #088A08;
+}
+
+.asBookmarkRemBtn
+{
+    background-color: #A4A4A4;
+    border: 1px solid #E6E6E6;
+    border-radius: 5px;
+    color: #FAFAFA;
+    font-size: 12px;
+    font-weight: bold;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.asBookmarkRemBtn:hover
+{
+    background-color: #DF0101;
+}
+
+.asButton
+{
+    background-color: #F2F2F2;
+    border: 1px solid #D8D8D8;
+    color: #585858;
+    font-size: 14px;
+    font-weight: normal;
+    padding-bottom: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 5px;
+}
+
+.asButton:hover
+{
+    border: 1px solid #BDBDBD;
+    color: black;
+}
+
+.asCommentBtn
+{
+    background-color: #0174DF;
+    border: 0;
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 22px;
+    padding-right: 22px;
+    padding-top: 10px;
+}
+
+.asCommentBtn:hover
+{
+    background-color: #2E9AFE;
+    border: 0;
+    color: #FFFFFF;
+}
+
+.asCoverButton
+{
+    margin-left: 30px;
+}
+
+.asFollowBtn
+{
+    background-color: #A4A4A4;
+    border: 1px solid #E6E6E6;
+    border-radius: 5px;
+    color: #FAFAFA;
+    font-size: 12px;
+    font-weight: bold;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.asFollowBtn:hover
+{
+    background-color: #2E64FE;
+}
+/* Button : END */
+
+/* Division : BEGIN */
+.asBookDiv
+{
+    float: left;
+    width: 50%;
+}
+
+@media screen and (max-width: 900px)
+{
+    .asBookDiv
+    {
+        width: 100%;
+    }
+}
+
+.asCarouselItemDiv
+{
+    position: relative;
+}
+
+.asCommentsDiv
+{
+    width: 50%;
+}
+
+.asContainerDiv
+{
+    padding:0 7.35%;
+}
+
+.asCoverDiv
+{
+    border-bottom: 1px solid #ccc;
+    height: 350px;
+}
+
+.asDocContentDiv
+{
+    float: left;
+    margin-bottom: 35px;
+    margin-left: 29%;
+    margin-right: 12.87%;
+    width: 50%;
+}
+
+.asDocSectionDiv
+{
+    background-color: #FAFAFA;
+    border: 1px solid skyblue;
+    border-radius: 5px;
+    margin-top: 50px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.asFavBooksDiv
+{
+    float: left;
+    margin-right: 50px;
+    width: 45%;
+}
+
+.asFavMusicDiv
+{
+    float: left;
+    width: 45%;
+}
+
+@media screen and (max-width: 650px)
+{
+    .asCommentsDiv, .asFavBooksDiv, .asFavMusicDiv
+    {
+        width: 100%;
+    }
+}
+
+.asFooterDiv
+{
+    background-color: #E6E6E6;
+    border-top: 1px solid #ccc;
+    clear: both;
+    font-size: 13px;
+    padding-bottom: 20px;
+    padding-left: 150px;
+    padding-right: 150px;
+    padding-top: 20px;
+}
+
+.asImgFrame
+{
+    background-size: cover;
+    float: left;
+    height: 150px;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    width: 30%;
+}
+
+.asMusicDiv
+{
+    width: 50%;
+}
+
+@media screen and (max-width: 900px)
+{
+    .asMusicDiv
+    {
+        width: 100%;
+    }
+}
+
+.asNewsDiv
+{
+    float: left;
+    padding-right: 50px;
+    width: 50%;
+}
+
+@media screen and (max-width: 1100px)
+{
+    .asNewsDiv
+    {
+        padding-right: 0px;
+        width: 100%;
+    }
+}
+
+.asPaddedDiv
+{
+    margin: 0 14.7%;
+}
+
+.asPeopleDiv
+{
+    float: left;
+    padding-right: 50px;
+    width: 50%;
+}
+
+@media screen and (max-width: 800px)
+{
+    .asPeopleDiv
+    {
+        padding-right: 0px;
+        width: 100%;
+    }
+}
+
+.asProfileCenterDiv
+{
+    float: left;
+    margin-right: 35px;
+    width: 30%;
+}
+
+.asProfileLeftDiv
+{
+    float: left;
+    margin-right: 35px;
+    width: 30%;
+}
+
+.asProfileRightDiv
+{
+    float: left;
+    width: 30%;
+}
+
+@media screen and (max-width: 1300px)
+{
+    .asProfileCenterDiv, .asProfileLeftDiv, .asProfileRightDiv
+    {
+        width: 25%;
+    }
+}
+
+@media screen and (max-width: 900px)
+{
+    .asProfileCenterDiv, .asProfileLeftDiv, .asProfileRightDiv
+    {
+        width: 100%;
+    }
+}
+
+.asProfileTitleDiv
+{
+    background-color: #E6E6E6;
+    border-bottom: 1px solid #ccc;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    width: 100%;
+}
+
+.asSectionNavDiv
+{
+    float: left;
+    height: 100%;
+    margin-left: 12.87%;
+    margin-top: 50px;
+    position: fixed;
+    width: 15%;
+}
+
+@media screen and (max-width: 1300px)
+{
+    .asDocContentDiv
+    {
+        margin-left: 30%;
+        margin-right: 10%;
+    }
+
+    .asSectionNavDiv
+    {
+        margin-left: 10%;
+    }
+}
+
+@media screen and (max-width: 950px)
+{
+    .asDocContentDiv
+    {
+        clear: both;
+        margin-left: 10%;
+        width: 80%;
+    }
+
+    .asSectionNavDiv
+    {
+        clear: both;
+        margin-left: 5%;
+        position: initial;
+        width: 30%;
+    }
+}
+
+@media screen and (max-width: 650px)
+{
+    .asSectionNavDiv
+    {
+        width: 40%;
+    }
+}
+
+@media screen and (max-width: 550px)
+{
+    .asSectionNavDiv
+    {
+        width: 50%;
+    }
+}
+
+.asWeatherDiv
+{
+    border: 1px solid skyblue;
+    float: left;
+    height: 300px;
+    margin-top: 65px;
+    padding-left: 35px;
+    margin-bottom: 20px;
+    width: 35%;
+}
+
+@media screen and (max-width: 1100px)
+{
+    .asWeatherDiv
+    {
+        width: 45%;
+    }
+}
+
+@media screen and (max-width: 950px)
+{
+    .asWeatherDiv
+    {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 900px)
+{
+    .asWeatherDiv
+    {
+        width: 55%;
+    }
+}
+
+@media screen and (max-width: 800px)
+{
+    .asWeatherDiv
+    {
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 700px)
+{
+    .asWeatherDiv
+    {
+        width: 65%;
+    }
+}
+
+@media screen and (max-width: 600px)
+{
+    .asWeatherDiv
+    {
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 550px)
+{
+    .asWeatherDiv
+    {
+        border: 0px;
+        margin-top: 0px;
+        padding-left: 0px;
+        width: 100%;
+    }
+}
+
+.asWelcomeTitleDiv
+{
+    background-color: white;
+    border-bottom: 1px solid #ccc;
+    padding-left: 18.38%;
+    padding-top: 20px;
+}
+/* Division : END */
+
+/* Element : BEGIN */
+.asBookP
+{
+    clear: both;
+}
+
+.asCommentP
+{
+    clear: both;
+}
+
+.asCommentTextArea
+{
+    color: #424242;
+    font-family: Arial;
+    font-size: 13px;
+    padding: 5px;
+    resize: none;
+    width: 100%;
+}
+
+.asDocP
+{
+    color: #2E2E2E;
+    font-size: 14px;
+}
+
+.asCenterElem
+{
+    font-size: 14px;
+    text-align: center;
+}
+
+.asFormElem
+{
+    font-size: 16px;
+    line-height: 150%;
+    margin-bottom: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+@media screen and (max-width: 500px)
+{
+    .asFormElem
+    {
+        font-size: 14px;
+    }
+}
+
+.asHr
+{
+    border: 0;
+    border-top: 1px solid #E6E6E6;
+    clear: both;
+    display: block;
+    height: 1px;
+    margin: 1em 0;
+    padding: 0;
+}
+
+.asInputField
+{
+    font-size: 15px;
+    line-height: 150%;
+    padding-left: 5px;
+}
+
+.asNonClearingBookmarksHr
+{
+    visibility: hidden;
+}
+
+.asNonClearingNewsHr
+{
+    visibility: hidden;   
+}
+
+.asNonClearingProfileHr
+{
+    visibility: hidden;
+}
+
+@media screen and (max-width: 650px)
+{
+    .asNonClearingBookmarksHr
+    {
+        border: 0;
+        border-top: 1px solid #E6E6E6;
+        display: block;
+        height: 1px;
+        margin: 1em 0;
+        padding: 0;
+        visibility: visible;
+    }
+}
+
+@media screen and (max-width: 550px)
+{
+    .asNonClearingNewsHr
+    {
+        border: 0;
+        border-top: 1px solid #E6E6E6;
+        display: block;
+        height: 1px;
+        margin: 1em 0;
+        padding: 0;
+        visibility: visible;
+    }
+}
+
+@media screen and (max-width: 900px)
+{
+    .asNonClearingProfileHr
+    {
+        border: 0;
+        border-top: 1px solid #E6E6E6;
+        display: block;
+        height: 1px;
+        margin: 1em 0;
+        padding: 0;
+        visibility: visible;
+    }
+}
+
+.asWideInputField
+{
+    width: 90%;
+}
+
+@media screen and (max-width: 1200px)
+{
+    .asWideInputField
+    {
+        width: 85%;
+    }
+}
+
+@media screen and (max-width: 850px)
+{
+    .asWideInputField
+    {
+        width: 75%;
+    }
+}
+
+@media screen and (max-width: 500px)
+{
+    .asWideInputField
+    {
+        width: 60%;
+    }
+}
+
+p
+{
+    text-align: justify;
+}
+/* Element : END */
+
+/* Heading : BEGIN */
+.asBanner
+{
+    color: #5D5D5D;
+    font-weight: bold;
+    margin-left: 2em;
+}
+
+.asH1
+{
+    color: #5D5D5D;
+    font-size: 4em;
+    font-weight: normal;
+}
+
+.asH2
+{
+    font-weight: normal;
+}
+
+.asH2OverImg
+{
+    font-weight: normal;
+    position: absolute;
+    top: 303px;
+    width: 100%;
+}
+/* Heading : END */
+
+/* Image : BEGIN */
+.asBookImg
+{
+    float: left;
+    height: 80px;
+    padding-bottom: 10px;
+    padding-right: 20px;
+    padding-top: 10px;
+    width: 60px;
+}
+
+.asCarouselItem
+{
+    display: block;
+    font-size: 4em;
+    height: 480px;
+    width: 100%;
+    
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+
+.asCommentImg
+{
+    float: left;
+    height: 50px;
+    padding-bottom: 10px;
+    padding-right: 20px;
+    padding-top: 10px;
+    width: 40px;
+}
+
+.asContactImg
+{
+    height: 40px;
+    padding: 10px;
+    width: 40px;
+}
+
+.asCreditImg
+{
+    position: absolute;
+    zindex: 100;
+}
+
+.asDocImg
+{
+    border: 1px solid skyblue;
+    height: 75%;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    margin-left: 4.9%;
+    width: 90%;
+}
+
+.asPersonImg
+{
+    float: left;
+    height: 160px;
+    padding-bottom: 10px;
+    padding-right: 20px;
+    padding-top: 10px;
+    width: 120px;
+}
+
+.asProviderImg
+{
+    padding-bottom: 20px;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+/* Image : END */
+
+/* Link : BEGIN */
+.asBookA
+{
+    color: blue;
+    font-size: 17px;
+}
+
+.asBookA:not(:hover)
+{
+    text-decoration: none;
+}
+
+.asBookA:visited
+{
+    /* color: purple; */
+}
+
+.asContactA
+{
+    text-decoration: none;
+}
+
+.asCreditA
+{
+    color: #A4A4A4;
+    font-size: 13px;
+    margin: 0 15px;
+    padding: 2px;
+    text-decoration: none;
+}
+
+.asCreditA:hover
+{
+    color: #08f;
+}
+
+.asHeadlineA
+{
+    color: blue;
+    font-size: 17px;
+}
+
+.asHeadlineA:not(:hover)
+{
+    text-decoration: none;
+}
+
+.asHeadlineA:visited
+{
+    color: purple;
+}
+
+.asModalCloseA
+{
+    background: #606061;
+    border-radius: 12px;
+    box-shadow: 1px 1px 3px #000;
+    color: #FFFFFF;
+    font-weight: bold;
+    line-height: 25px;
+    position: absolute;
+    right: -12px;
+    text-align: center;
+    text-decoration: none;
+    top: -10px;
+    width: 24px;
+    -moz-border-radius: 12px;
+    -moz-box-shadow: 1px 1px 3px #000;
+    -webkit-border-radius: 12px;
+    -webkit-box-shadow: 1px 1px 3px #000;
+}
+
+.asModalCloseA:hover
+{
+    background: skyblue;
+}
+
+.asPersonA
+{
+    color: black;
+    font-size: 24px;
+}
+
+.asPersonA:not(:hover)
+{
+    text-decoration: none;
+}
+
+.asProfileNavA
+{
+    color: black;
+    float: right;
+    font-size: 15px;
+    margin-right: 1em;
+}
+
+.asProfileNavA:not(:hover)
+{
+    text-decoration: none;
+}
+
+.asProfileNavA:hover
+{
+    color: #08f;
+}
+
+.asSectionNavA
+{
+    color: #2E2E2E;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.asSectionNavA:hover
+{
+    color: skyblue;
+}
+
+.asSignInA
+{
+    float: right;
+    padding-right: 50px;
+}
+
+.asWelcomeNavA
+{
+    color: steelblue;
+    margin-right: 1em;
+}
+
+.asWelcomeNavA:not(:hover)
+{
+    text-decoration: none;
+}
+/* Link : END */
+
+/* List : BEGIN */
+.asDocUl
+{
+    color: #2E2E2E;
+    font-size: 14px;
+}
+
+.asSectionNavLi
+{
+    padding-bottom: 7px;
+    padding-left: 10px;
+    padding-top: 7px;
+}
+
+.asSectionNavLi:hover
+{
+    background-color: #E6E6E6;
+}
+
+.asSectionNavUl
+{
+    list-style-type: none;
+}
+/* List : END */
+
+/* Modal : BEGIN */
+.asCoverModal
+{
+    border: 0px;
+    border-radius: 10px;
+    padding-left: 50px;
+    width: 40%;
+}
+
+.asImgFrame1
+{
+    background-image: url('../image/cover1.jpg');
+}
+
+.asImgFrame2
+{
+    background-image: url('../image/cover2.jpg');
+}
+
+.asImgFrame3
+{
+    background-image: url('../image/cover3.jpg');
+}
+
+.asImgFrame4
+{
+    background-image: url('../image/cover4.jpg');
+}
+
+.asImgFrame5
+{
+    background-image: url('../image/cover5.png');
+}
+
+.asImgFrame6
+{
+    background-image: url('../image/cover6.jpg');
+}
+/* Modal : END */
+
+/* Span : BEGIN */
+/* Styles */
+.asBoldSpan
+{
+    font-weight: bold;
+}
+
+.asNormalSpan
+{
+    font-size: 20px;
+    font-weight: normal;
+}
+
+/* Colors */
+.asBlancSpan
+{
+    color: white;
+}
+
+.asGrisSpan
+{
+    color: gray;
+}
+
+.asRougeSpan
+{
+    color: skyblue;
+}
+
+/* Custom */
+.asBookAuth
+{
+    color: #585858;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.asBookDesc
+{
+    color: #585858;
+    font-size: 13px;
+}
+
+.asBookUrl
+{
+    color: #0B610B;
+    font-size: 14px;
+}
+
+.asCommentHeading
+{
+    color: #6E6E6E;
+    clear: both;
+    font-size: 13px;
+    font-weight: bold;
+    line-height: 35px;
+}
+
+.asCommentSpan
+{
+    color: #424242;
+    font-size: 13px;
+}
+
+.asCopyrightSpan1
+{
+    color: #A4A4A4;
+}
+
+.asCopyrightSpan2
+{
+    color: #6E6E6E;
+}
+
+.asDocH2
+{
+    color: skyblue;
+}
+
+.asDocH3
+{
+    color: #2E2E2E;
+    font-weight: normal;
+}
+
+.asDocSpan
+{
+    color: #2E2E2E;
+    font-size: 14px; 
+}
+
+.asFeedHeading
+{
+    color: #086A87;
+    font-size: 20px;
+    font-weight: normal;
+}
+
+.asFeedSpan
+{
+    color: #585858;
+    font-size: 13px;
+    line-height: 30px;
+}
+
+.asMusicTitle
+{
+    color: #2E2E2E;
+    font-size: 17px;
+    font-weight: normal;
+}
+
+.asMusicUrl
+{
+    color: #0B610B;
+    font-size: 14px;
+}
+
+.asNewsSpan
+{
+    font-size: 14px;
+}
+
+.asNoContentSpan
+{
+    color: #BDBDBD;
+    font-size: 64px;
+}
+
+.asNotifSpan
+{
+    background-color: skyblue;
+    border: 1px solid skyblue;
+    border-radius: 3px;
+    color: white;
+    font-size: 13px;
+    margin-left: 10px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 5px;
+}
+
+.asPersonDesc
+{
+    color: #585858;
+    font-size: 13px;
+}
+
+.asPersonTitle
+{
+    color: #2E2E2E;
+    font-size: 18px;
+    font-weight: normal;
+}
+
+.asSpanOverImg
+{
+    background: rgb(0, 0, 0); /* Fallback color */
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 10px;
+}
+
+.asStatSpan
+{
+    font-size: 14px;
+}
+
+.asUsernameSpan
+{
+    color: black;
+    font-size: 32px;
+    line-height: 0px;
+    margin-top: 0px;
+    padding-left: 75px;
+    padding-top: 275px;
+}
+
+.asWeatherSpan
+{
+    font-size: 14px;
+    line-height: 150%;
+}
+/* Span : END */
+/* Table : END */
+/* End of app.css */
