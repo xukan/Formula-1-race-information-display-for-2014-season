@@ -8,6 +8,7 @@ var app = angular.module('F1FeederApp', [
   'F1FeederApp.registerService',
   'F1FeederApp.profileService',
   'F1FeederApp.homeModule',
+  'luegg.directives',
   'ngRoute'
 ]);
 

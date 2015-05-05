@@ -1,8 +1,9 @@
 var login = angular.module('F1FeederApp.loginService', []);
 
-login.controller('loginServiceController', function LoginService($scope, $http, $window,$location, $rootScope) {
+login.controller('loginServiceController', function LoginService($scope, $rootScope,$http, $window,$location, $rootScope) {
     var currentUser = null;
     var loginfail = null;
+    $rootScope.usersOnline =[];
     var getCurrentUser = function () {
         return currentUser;
     };
@@ -16,7 +17,13 @@ login.controller('loginServiceController', function LoginService($scope, $http, 
         $http.post("/login", user)
         .success(function (response) {
             console.log("service current user blah: " + response);
+
             currentUser = response;
+            //$rootScope.usersOnline.push(currentUser);
+            //$rootScope.$digest();
+
+            console.log("usersOnline:"+$rootScope.usersOnline);
+
             $rootScope.loggedInUser = currentUser.username;
             console.log("username is this : "+currentUser.username);
             $location.url("/drivers");

@@ -8,7 +8,8 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
- 
+//var scrollglue = require('angularjs-scroll-glue');
+
 var app = express();
 
 // app.use(express.static('.'));
@@ -30,6 +31,7 @@ app.use(session({
 app.use(cookieParser());
 app.use(passport.initialize());
 app.use(passport.session());
+//app.use(scrollglue.scrollglue());
 
 var connectionstring = process.env.OPENSHIFT_MONGODB_DB_URL || 'mongodb://localhost/mydb';
 mongoose.connect(connectionstring);
@@ -318,7 +320,14 @@ io.sockets.on('connection', function (socket) {
             if (err) {
                 throw err;
             } else {
-                io.sockets.emit('get msg', currentUser,data);
+                io.sockets.emit('get msg', data);
+        
+
+
+        //Animate
+        // $("#chatWrap-content").animate({
+        //     bottom: $("#chatWrap-content").height() - $("#chatWrap").height()
+        // }, 250);
             }
         });
     });
