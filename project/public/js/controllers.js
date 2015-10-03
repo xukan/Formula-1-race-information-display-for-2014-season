@@ -1,4 +1,4 @@
-﻿angular.module('F1FeederApp.controllers', ['angularModalService']).
+﻿angular.module('F1FeederApp.controllers', ['ui.bootstrap']).
 
   //DRIVERS CONTROLLER
 controller('driversController', function ($scope, $http,$rootScope, $window, ergastAPIservice) {
@@ -36,7 +36,6 @@ controller('driverController', function ($scope, $routeParams, ergastAPIservice)
     $scope.id = $routeParams.id;
     $scope.races = [];
     $scope.driver = null;
-
     ergastAPIservice.getDriverDetails($scope.id).success(function (response) {
         $scope.driver = response.MRData.StandingsTable.StandingsLists[0].DriverStandings[0];
     });
@@ -88,12 +87,10 @@ controller('teamController', function ($scope, $routeParams, $http, ergastAPIser
 
 
 //RACES CONTROLLER
-controller('racesController', function ($scope, $http, ergastAPIservice, ModalService) {
+controller('racesController', function ($scope, $modal, $log, $http, ergastAPIservice) {
     $scope.pastRaces = [];
     $scope.racesList = [];
     $scope.filterName = null;
-    
-
     ergastAPIservice.getRaceWinners().success(function (response) {
         //Dig into the response to get the relevante data
         $scope.pastRaces = response.MRData.RaceTable.Races;
@@ -105,77 +102,42 @@ controller('racesController', function ($scope, $http, ergastAPIservice, ModalSe
             });
         });
     });
+    
+    $scope.showModal = function (size, selectedCircuit) {
+        console.log(selectedCircuit);
+        console.log(size);
+        var modalInstance = $modal.open({
+           // backdrop : 'static',
+            templateUrl: 'myModalContent.html',
+            controller: function ($scope, $modalInstance, circuit){
+                //这里参数的circuit名称必须和$scope.circuit定义中的一致
+                $scope.circuit = circuit;
 
-    $scope.showModal = function() {
-        ModalService.showModal({
-            templateUrl: 'modal.html',
-            controller: "ModalController"
-        }).then(function(modal) {
-            modal.element.modal();
-            modal.close.then(function(result) {
-                $scope.message = "You said " + result;
-            });
+                $scope.ok = function () {
+                    //$modalInstance.close($scope.selected.item);
+                    $modalInstance.close($scope.circuit);
+                };
+
+                $scope.cancel = function () {
+                  $modalInstance.dismiss('cancel');
+                };
+            },
+            //circuitId : selectedCircuitId,
+            size:size,
+            resolve: {
+                    circuit: function () {
+                    return selectedCircuit;
+                }
+            }
+        });
+
+        modalInstance.result.then(function (selectedItem) {
+            $scope.selected = selectedItem;
+        }, function () {
+            $log.info('Modal dismissed at: ' + new Date());
         });
     };
 }).
-
-// controller('racesController', function ($scope, $http, ergastAPIservice, ModalService) {
-//     $scope.pastRaces = [];
-//     $scope.racesList = [];
-//     $scope.filterName = null;
-//     $scope.photos = [
-//       {src: '.jpg', desc: 'Image 01'},
-//       {src: '.jpg', desc: 'Image 02'},
-//       {src: '.jpg', desc: 'Image 03'},
-//       {src: '.jpg', desc: 'Image 04'},
-//       {src: '.jpg', desc: 'Image 05'},
-//       {src: '.jpg', desc: 'Image 06'}
-//     ];
-
-//     ergastAPIservice.getRaceWinners().success(function (response) {
-//         //Dig into the response to get the relevante data
-//         $scope.pastRaces = response.MRData.RaceTable.Races;
-//         ergastAPIservice.getRaces().success(function (response) {
-//             $scope.racesList = response.MRData.RaceTable.Races;
-//             angular.forEach($scope.pastRaces, function (race, index) {
-//                 //Push each winning driver into raceList
-//                 $scope.racesList[index].Results = race.Results;
-//             });
-//         });
-//     });
-
-//     $scope.showModal = function(photo) {
-//         ModalService.showModal({
-//             templateUrl: 'modal.html',
-//             controller: "ModalController"
-//         }).then(function(modal) {
-//             modal.element.modal();
-//             modal.close.then(function(result) {
-//                 $scope.message = "You said " + result;
-//             });
-//         });
-//     };
-// }).
-
-controller('ModalController', function($scope, close) {
-  // when you need to close the modal, call close
-    
-    // $scope._Index = 0;
-  
-    //   // if a current image is the same as requested image
-    //   $scope.isActive = function (index) {
-    //       return $scope._Index === index;
-    //   };
-      
-    //   // show a certain image
-    //   $scope.showPhoto = function (index) {
-    //       $scope._Index = index;
-    //   };
- 
-
-  close("Success!");
-}).
-
 
 //RACE CONTROLLER
 controller('raceController', function ($scope, $routeParams, $http, ergastAPIservice) {

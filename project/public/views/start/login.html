@@ -1,0 +1,45 @@
+<div class="col-md-1"></div>
+
+<div class="col-md-10 loginbody">
+<div class="col-sm-4">
+    <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
+    <div class="panel panel-success">
+        <div class="panel-heading">
+            <!-- <p ng-show="loginfail"><span class="message error">Oops!</span> Login credentials are incorrect. </p> -->
+            <h3 class="panel-title">Welcome</h3>
+        </div>
+        <!--<fieldset>-->
+        <div class="panel-body">
+            <!--<legend><span class="message">Login Details</span></legend>-->
+            
+        <form class="panel-login">
+            <input type="text" name="field1" ng-model="user.username" placeholder="Username *">
+            <br />
+            <br />
+            <input type="password" name="field3" ng-model="user.password" placeholder="Password *">
+            <!--</fieldset>-->
+            <div class="col-sm-6">
+            <br/>
+            <a class="btn btn-info btn-block" ng-click="login(user)" id="submit" >LOGIN</a>
+            </div>
+            <div class="col-sm-6 account">
+            <br/>
+            <a href="#register" class="btn btn-info">
+                Creat an account</a>		
+            </div>
+        </form>			
+        </div><!--end panel-body-->
+    </div>
+</div><!--end col-sm-6--> 
+<div class="col-sm-8 loginImage">
+   
+    <img src="img/login1.jpg"/>
+ 
+</div><!--end col-sm-6--> 
+</div><!--end panel-->
+<div class="col-md-1"></div>
+
+
+
+
+

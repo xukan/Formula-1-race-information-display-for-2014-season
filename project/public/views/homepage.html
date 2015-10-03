@@ -1,6 +1,6 @@
 <div class="container">
 	<div class="container top-page">
-		<img src="img/homepage/f1top.png"/>
+		<img class="top-img" src="img/homepage/f1top.png"/>
 		<hr/>
 	</div>
 
@@ -8,7 +8,7 @@
 	<h1 class="title"><strong>Formula1</strong><i class="fa fa-car"></i><strong>&nbsp;I LOVE THIS GAME</strong></h1>
 
 	<h5 class="remind title"> Welcome, to view content in this website, you need to login first</h5>
-	<div class="carousel-demo container">
+	<!-- <div class="carousel-demo container">
 	    <ul rn-carousel rn-carousel-index="carouselIndex3" rn-carousel-transition="hexagon" rn-carousel-buffered class="carousel3">
 	        <li ng-repeat="slide in slides3 track by slide.id">
 	            <div ng-style="{'background-image': 'url(' + slide.img + ')'}"  class="bgimage">
@@ -16,7 +16,37 @@
 	            </div>
 	        </li>
 	    </ul>
+	</div> -->
+	<div class=" container">
+	  <div class="col-sm-2"></div>		
+	  <div style="height: 300px" class="col-sm-8">
+	    <carousel interval="myInterval" no-wrap="noWrapSlides">
+	      <slide ng-repeat="slide in slides" active="slide.active">
+	        <img ng-src="{{slide.image}}" style="margin:auto;">
+	        <div class="carousel-caption">
+	          <p>{{slide.text}}</p>
+	        </div>
+	      </slide>
+	    </carousel>
+	  
+	  <div class="row">
+	    <div class="col-md-6">
+	      <button type="button" class="btn btn-info" ng-click="addSlide()">Add Slide</button>
+	      <div class="checkbox">
+	        <label>
+	          <input type="checkbox" ng-model="noWrapSlides">
+	          Disable Slide Looping
+	        </label>
+	      </div>
+	    </div>
+	    <div class="col-md-6">
+	      Interval, in milliseconds: <input type="number" class="form-control" ng-model="myInterval">
+	      Enter a negative number or 0 to stop the interval.
+	    </div>
+	  </div>
 	</div>
+	</div>
+	<div class="col-sm-2"></div>
 	</div><!--end homepage-wrapper-->
 	<div class="footer">
 		

@@ -1,10 +1,10 @@
-﻿angular.module('F1FeederApp.controllers', []).
+﻿angular.module('F1FeederApp.controllers', ['ui.bootstrap']).
 
   //DRIVERS CONTROLLER
-controller('driversController', function ($scope, ergastAPIservice) {
+controller('driversController', function ($scope, $http,$rootScope, $window, ergastAPIservice) {
     $scope.filterName = null;
     $scope.driversList = [];
-
+    
     $scope.items=["2015","2014","2013","2012","2011"];
        
     // $scope.searchFilter = function (driver) {
@@ -16,7 +16,17 @@ controller('driversController', function ($scope, ergastAPIservice) {
         //Dig into the response to get the relevante data
         $scope.driversList = response.MRData.StandingsTable.StandingsLists[0].DriverStandings;
     });
-    
+
+    $scope.follow=function(driver){
+        console.log(driver);
+        var currentUser = $rootScope.loggedInUser;
+        $http.put("/follow/"+currentUser, driver)
+        .success(function(response){
+            console.log("hi");
+            if(response!=null)
+                $window.alert("confirmed");
+        });
+    }
 }).
 
 
@@ -78,22 +88,12 @@ controller('teamController', function ($scope, $routeParams, $http, ergastAPIser
 
 
 //RACES CONTROLLER
-controller('racesController', function ($scope, $http, ergastAPIservice, ModalService) {
+//RACES CONTROLLER
+controller('racesController', function ($scope, $modal, $log, $http, ergastAPIservice) {
     $scope.pastRaces = [];
     $scope.racesList = [];
     $scope.filterName = null;
-
-    // ModalService.showModal({
-    //     templateUrl: "circuitModal.html",
-    //     controller: "ModalController"
-    //   }).then(function(modal) {
-
-    // //it's a bootstrap element, use 'modal' to show it
-    // modal.element.modal();
-    // modal.close.then(function(result) {
-    //   //console.log(result);
-    // });
-
+    
     ergastAPIservice.getRaceWinners().success(function (response) {
         //Dig into the response to get the relevante data
         $scope.pastRaces = response.MRData.RaceTable.Races;
@@ -105,20 +105,52 @@ controller('racesController', function ($scope, $http, ergastAPIservice, ModalSe
             });
         });
     });
+
+    //$scope.circuitId = null;
+    
+    $scope.showModal = function (size, selectedCircuitId) {
+        console.log(selectedCircuitId);
+        console.log(size);
+        var modalInstance = $modal.open({
+            
+            //animation: $scope.animationsEnabled,
+            templateUrl: 'myModalContent.html',
+            controller: function ($scope, $modalInstance, circuitId){
+
+                //$scope.circuit = circuitId;
+                $scope.circuitId = circuitId;
+
+                $scope.ok = function () {
+                    //$modalInstance.close($scope.selected.item);
+                    $modalInstance.close();
+                };
+
+                $scope.cancel = function () {
+                  $modalInstance.dismiss('cancel');
+                };
+            },
+            //circuitId : selectedCircuitId,
+            size:size,
+            resolve: {
+                    circuitId: function () {
+                    return selectedCircuitId;
+                }
+            }
+        });
+
+        modalInstance.result.then(function (selectedItem) {
+            $scope.selected = selectedItem;
+        }, function () {
+            $log.info('Modal dismissed at: ' + new Date());
+        });
+    };
 }).
-
-// controller('ModalController', function($scope, close) {
-//   // when you need to close the modal, call close
-//   close("Success!");
-// }).
-
 
 //RACE CONTROLLER
 controller('raceController', function ($scope, $routeParams, $http, ergastAPIservice) {
     $scope.id = $routeParams.id;
     $scope.raceResult = [];
     $scope.qualiResult = [];
-
 
     ergastAPIservice.getRaceDetails($scope.id).success(function (response) {
         $scope.race = response.MRData.RaceTable.Races[0];
@@ -130,14 +162,14 @@ controller('raceController', function ($scope, $routeParams, $http, ergastAPIser
     });
 
     //MOVE THIS ONE TO A SERVICE
-    $http.jsonp('http://ergast.com/api/f1/2013/' + $routeParams.id + '/results.json?callback=JSON_CALLBACK').success(function (response) {
+    $http.jsonp('http://ergast.com/api/f1/2014/' + $routeParams.id + '/results.json?callback=JSON_CALLBACK').success(function (response) {
         $scope.race = response.MRData.RaceTable.Races[0];
         $scope.raceResult = response.MRData.RaceTable.Races[0].Results;
     }).error(function (error) {
     });
 
     //THIS ONE AS WELL< FOR A SEPRATE SERVICE
-    $http.jsonp('http://ergast.com/api/f1/2013/' + $routeParams.id + '/qualifying.json?callback=JSON_CALLBACK').success(function (response) {
+    $http.jsonp('http://ergast.com/api/f1/2014/' + $routeParams.id + '/qualifying.json?callback=JSON_CALLBACK').success(function (response) {
         $scope.qualiResult = response.MRData.RaceTable.Races[0].QualifyingResults;
     }).error(function (error) {
     });

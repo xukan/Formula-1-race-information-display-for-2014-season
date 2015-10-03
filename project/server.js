@@ -36,8 +36,6 @@ app.use(passport.session());
 var connectionstring = process.env.OPENSHIFT_MONGODB_DB_URL || 'mongodb://localhost/mydb';
 mongoose.connect(connectionstring);
 
-
-
 app.use(express.static(__dirname + '/views'));
 
 var LoginDBSchema = new mongoose.Schema({
@@ -54,8 +52,9 @@ var LoginDBSchema = new mongoose.Schema({
 var MessageSchema = new mongoose.Schema({
     //userFrom: { type: String, required: true, unique: true },
     //userTo: { type: String, required: true, unique: true },
-    userFrom: String,
-    userTo: String,
+    sender: String,
+    recipient: String,
+    isPrivate : Boolean, 
     message: { type: String, required: true },
     time: { type: Date, default: Date.now }
 }, { collection: 'messageInfo' });
@@ -104,7 +103,6 @@ app.post('/register', function (req, res) {
     var newUser = req.body;
     newUser.usertype='user';  
     LoginDBModel.findOne({ username: newUser.username},function (err, user) {
-    
         console.log(err);
         console.log(user);
         if(err) { return next(err); }
@@ -188,6 +186,26 @@ app.put("/follow/:username/favorite/:driver", function(req,res){
         console.log(data);
         res.send(data);
     });  
+});
+
+//retrieve inmails
+app.get('/inbox/inmails/:recipientUsername', function (req, res) {
+    var recipientUsername = req.params.recipientUsername;
+    MessageDBModel.find({recipient: recipientUsername },
+     function (err, inmails) {
+        if (err)
+            res.send(err);
+        res.json(inmails);
+    });
+});
+
+app.get('/inbox/inmails/detail/:id' , function(req, res){
+    MessageDBModel.findById(req.params.id, 
+        function (err, email) {
+            if (err)
+                res.send(err);
+            res.json(email);
+    });
 });
 
 app.get("/follow/:username", function(req,res){
@@ -277,57 +295,48 @@ var io = require('socket.io').listen(server);
 var usernames = {};
 var numUsers = 0;
 
-// io.sockets.on('connection', function (socket) {
-//     socket.on('send msg', function (data) {
-
-//     var newMsg = new MessageDBModel({message:data});
-//         newMsg.save(function (err) {
-//             if (err) {
-//                 throw err;
-//             } else {
-//                 io.sockets.emit('get msg', data);
-//             }
-//         });
-//     });
-// });
-
 io.sockets.on('connection', function (socket) {
 
-    socket.on('add user', function (username) {
-    // we store the username in the socket session for this client
-    socket.username = username;
-    // add the client's username to the global list
-    usernames[username] = username;
-    ++numUsers;
-    addedUser = true;
-    socket.emit('login', {
-      numUsers: numUsers
+    console.log("hi");
+    var query = MessageDBModel.find({isPrivate : false});
+    query.sort('-time').limit(5).exec(function(err, docs){
+        // -time: in descending order on time
+        if(err) throw err;
+        console.log("sending old msgs");
+        socket.emit('load old msgs', docs);
     });
-    // echo globally (all clients) that a person has connected
-    socket.broadcast.emit('user joined', {
-      username: socket.username,
-      numUsers: numUsers
-    });
-  });
 
-    socket.on('send msg', function (data) {
+    socket.on('send publicMsg', function (data) {
     currentUser=socket.username;
     console.log(currentUser);
     var newMsg = new MessageDBModel({
-        userFrom: currentUser,
-        message:data});
+        sender: data.nick,
+        //recipient:,
+        isPrivate: false,
+        message:data.publicMsg});
         newMsg.save(function (err) {
             if (err) {
                 throw err;
             } else {
-                io.sockets.emit('get msg', data);
-        
+                io.sockets.emit('get publicMsg', data);
+            }
+        });
+    });
 
-
-        //Animate
-        // $("#chatWrap-content").animate({
-        //     bottom: $("#chatWrap-content").height() - $("#chatWrap").height()
-        // }, 250);
+    socket.on('send privateMsg', function (data) {
+    currentUser=socket.sender;
+    console.log("send privateMsg");
+    console.log(currentUser);
+    var newMsg = new MessageDBModel({
+        sender: data.sender,
+        recipient: data.recipient,
+        isPrivate: true,
+        message:data.privateMsg});
+        newMsg.save(function (err) {
+            if (err) {
+                throw err;
+            } else {
+                io.sockets.emit('get privateMsg', data);
             }
         });
     });

@@ -1,17 +1,18 @@
-﻿var inmail = angular.module('F1FeederApp.inmail', ['luegg.directives']);
+var inmail = angular.module('F1FeederApp.inmail', ['luegg.directives','ui.bootstrap']);
 
 inmail.factory('socket', function () {
-    //||'http://localhost:8000'
     var socket = io.connect('http://formula1-kanexu.rhcloud.com:8000');
+    //var socket = io.connect('http://localhost:8000');
     return socket;
 });
-
+//http://formula1-kanexu.rhcloud.com/
 inmail.controller('inmailController', function ($scope,$rootScope, $http, socket) {
     $scope.usersInAll =[];
-    $scope.msgs = [];
-    // $scope.numofOnlineUser= $scope.usersInAll.length;
+    $scope.publicMsgs = [];
+    $scope.privateMsg= [];
     $scope.numofOnlineUser =0;
-  
+    $scope.isCollapsed = false;
+    $scope.oneAtATime = true;
     $http.get("/rest/user")
     .success(function(users)
     {
@@ -20,25 +21,52 @@ inmail.controller('inmailController', function ($scope,$rootScope, $http, socket
     });
 
     var currentUser = $rootScope.loggedInUser;
+    
+    socket.on('load old msgs', function(docs){
+        angular.forEach(docs.reverse(), function(data, key){
+            $scope.publicMsgs.push('<b>'+data.sender+':'+'</b>'+data.message);
+            $scope.$digest();
+        }); 
+
+        $scope.publicMsgs.push('--------------historical messages-------------');
+        $scope.$digest();
+    });
+
+    //public message
     $scope.sendMsg = function () {
-        socket.emit('send msg', currentUser+' '+$scope.chat.msg);
+        //socket.emit('send msg', currentUser+' '+$scope.chat.msg);
+        socket.emit('send publicMsg', {nick:currentUser, publicMsg:$scope.publicMsg.text});
         // socket.post('/chat/addconv/',{user:currentUser,message: $scope.chat.msg});
         console.log(currentUser);
-        $scope.chat.msg = '';
+        console.log($scope.publicMsg.text);
+        $scope.publicMsg.text = "";
         // $log.info($scope.chatMessage);
         // $scope.chatMessage = "";
     };
-  
-    socket.on('get msg', function (data) {
-        $scope.msgs.push(data);
+
+    socket.on('get publicMsg', function (data) {
+        $scope.publicMsgs.push('<b>'+data.nick+':'+'</b>'+data.publicMsg);
+        //$scope.msgs.push(data);
         $scope.$digest();
-        //Animate
-        $(".messages").animate({
-            bottom: $(".messages").height() - $(".chatWrap").height()
-        }, 250);
+    });
+
+    $scope.sendPrivateMsg = function(consignee){
+        //$scope.privateMsg="";
+        console.log("sendPrivateMsg");
         
-        // $scope.users.push(user);
-        // $scope.$digest();
+        socket.emit('send privateMsg', 
+            {sender:currentUser, recipient:consignee.username, privateMsg:consignee.privateMsgText});
+        console.log(consignee.privateMsgText);
+        console.log(currentUser);
+        console.log(consignee.username);
+        console.log(consignee.privateMsgText);
+        consignee.privateMsgText="";
+    };
+
+    socket.on('get privateMsg', function (data) {
+        console.log(data);
+        $scope.privateMsg.push(data.sender+':'+data.privateMsg);
+        
     });
 });
 

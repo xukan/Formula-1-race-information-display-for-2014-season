@@ -1,0 +1,33 @@
+<div class="inbox">
+
+  <div class="search-bar">
+    <div class="inbox__count">
+      You have {{ inmails.length }} messages
+    </div>
+    <div ng-hide="!inmails.length">
+      <input type="text" class="inbox__search" 
+        ng-model="inmail.search" placeholder="Search by 'from', e.g. TicketMaster">
+    </div>
+
+  </div>
+  <ul class="inbox__list">
+    <li ng-show="!inmails.length" class="no-emails">
+      No messages! Try sending one to a friend.
+    </li>
+    <li ng-repeat="inmail in inmails | filter:inmail.search ">
+      <div class="inbox__list-info">
+        <p class="inbox__list-from"> From: {{ inmail.sender }} </p>
+        <p class="inbox__list-date"> {{ inmail.time | date: 'MM/dd/yyyy' }} </p>
+        <p class="inbox__list-subject"> {{ inmail.message }} </p>
+      </div>
+      <div class="inbox__list-actions">
+        <a href="#/inbox/{{inmail._id}}" class="btn btn-warning" ng-click="getMessage(inmail)">
+          Read
+        </a>
+        <a href="" ng-click="deleteMessage(id, $index);">
+          Delete
+        </a>
+      </div>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,46 @@
+<!-- <script type="text/ng-template" id="modal.html"> -->		
+
+	<div>
+		<div class="modal-dialog">
+			<div class="modal-content" >
+			<div class="modal-header">
+				<a href="#login" class="close" >&times;</a>
+	            <h4 class="modal-title">Sign up for free!</h4>
+			</div><!--end modal-header-->
+			<div class="modal-body" id="main_box">
+			<form class="register">
+				<div class="form-group">
+				<div class="text">
+					<img src="img/register/username.png" alt="username" />
+					<input id="text" type="text" ng-model="user.username" placeholder="Username" /><br />
+				</div>
+	        	<div class="text">
+					<img src="img/register/password.png" alt="password" />
+					<input type="password" name="password" ng-model="user.password" placeholder="Password" /><br />
+				</div>
+				<div class="text">
+					<img src="img/register/password.png" alt="password" />
+					<input type="password" ng-model="user.password2" placeholder="Conform Password" /><br />
+				</div>
+				<div class="text">
+					<img src="img/register/email.png" alt="email" />
+					<input type="text" ng-model="user.email" placeholder="Email Address" /><br />
+				</div>
+			
+			<a href  class="btn btn-primary btn-block" ng-click="register(user)"> Register Now</a>
+			<br />
+			{{message}}
+			<br /><br /><br />					
+		
+		</div>
+		</form>
+			</div><!--end modal-body-->
+			<div class="modal-footer login">
+				Already have an account?
+				<a href="#login">Sign in now.</a>
+			</div>
+		</div><!--end modal-content-->
+		</div><!--end modal-dialog-->
+	</div><!--end modal-->	
+
+<!-- </script>-->

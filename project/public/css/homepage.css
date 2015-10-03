@@ -30,6 +30,10 @@ h3 {
   padding-left: 0;
 }
 
+.top-img{
+  max-width:100%;
+  height:auto;
+}
 .center {
     text-align: center;
 }

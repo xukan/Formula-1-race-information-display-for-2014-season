@@ -1,0 +1,77 @@
+﻿<div class="container">
+
+<div class="row chattitle">
+    <h1 class="chatroom">Formula1 Forum</h1>
+</div>
+
+<div class="row">
+<div class="col-sm-4">
+    <div>
+        <ul id="" class="list-group">
+            <li class="list-group-item active">Users<span class="badge">{{numofOnlineUser}}</span></li>
+            
+            <li class="list-group-item" ng-repeat="user in users"><i class="fa fa-desktop"></i>&nbsp;{{user.username}}
+           
+            <button type="button" class="btn btn-default pull-right" ng-click="isCollapsed = !isCollapsed" close-others="oneAtATime">whisper</button>
+            
+            <form collapse="!isCollapsed" ng-submit="sendPrivateMsg(user)">
+                <div class="form-group">
+                    <textarea class="form-control" placeholder="message" ng-model="user.privateMsgText"></textarea>
+                    <!-- <span class="input-group-btn "> -->
+                    <input class="btn btn-default form-control" type="submit" value="send"/>
+                    <!-- </span> -->
+                </div>
+            </form>
+                
+            </li>
+        </ul> 
+    </div>
+    
+    <!-- <div>
+        <div class="active">
+            <label>
+                <b>Users</b>
+            </label><span class="badge pull-right">{{numofOnlineUser}}</span>
+        </div>
+        <accordion close-others="oneAtATime">            
+            <accordion-group is-open="status.open" ng-repeat="user in users">
+            <accordion-heading>
+            <i class="fa fa-desktop"></i>&nbsp;{{user.username}}
+            
+            <a class="btn pull-right" ng-click="isCollapsed = !isCollapsed">whisper</a>
+            </accordion-heading>
+            <div collapse="!isCollapsed">
+                <textarea placeholder="message" ng-model="inputModel" class="well well-lg col-sm-9"/>
+                <div class="btn btn-success" ng-click="sendPrivateMsg(user)">send</div>
+            </div>
+           
+            </accordion-group>
+        </accordion>
+    </div> -->
+   
+</div>
+   
+<div class="col-sm-8">
+    
+    <div scroll-glue class="chatWrap">
+        <ul class="messages">                    
+            <li class="msg" ng-repeat="publicMsg in publicMsgs track by $index">{{publicMsg}}</li>
+        </ul>
+    </div>
+    <form ng-submit="sendMsg()" ng-show="loggedInUser">
+        <div class="form-group">
+            <div class="col-sm-1">
+                <i class="fa fa-volume-up"></i>
+                &nbsp;
+                <label class=" pull-left control-label labelname">{{loggedInUser}}</label>
+            </div>
+            <div class="col-sm-6">
+            <input type="textarea" class="form-control" ng-model="publicMsg.text"/>
+            </div>
+            <div class="col-sm-5"><input class="btn btn-primary" class="form-control" type="submit" value="send"/>
+            </div>
+        </div>
+    </form>
+</div><!--end row-->
+</div>
+</div>
